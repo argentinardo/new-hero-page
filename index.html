@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Super Miner: H.E.R.O. Chronicles</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              'retro': ['"Press Start 2P"', 'cursive'],
+              'terminal': ['"VT323"', 'monospace'],
+            },
+            colors: {
+              'slug-green': '#4b692f',
+              'slug-dark': '#1a1c2c',
+              'slug-rust': '#d95763',
+              'slug-gold': '#fbf236',
+              'slug-metal': '#595652',
+            },
+            animation: {
+              'float': 'float 3s ease-in-out infinite',
+              'flash': 'flash 1s steps(2, start) infinite',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              flash: {
+                '0%': { opacity: '1' },
+                '50%': { opacity: '0' },
+              }
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      /* Custom Scrollbar for Webkit */
+      ::-webkit-scrollbar {
+        width: 12px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #1a1c2c; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #4b692f; 
+        border: 2px solid #1a1c2c;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #d95763; 
+      }
+      
+      /* CRT Scanline Effect */
+      .scanlines {
+        background: linear-gradient(
+          to bottom,
+          rgba(255,255,255,0),
+          rgba(255,255,255,0) 50%,
+          rgba(0,0,0,0.2) 50%,
+          rgba(0,0,0,0.2)
+        );
+        background-size: 100% 4px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        z-index: 50;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0"
+  }
+}
+</script>
+</head>
+  <body class="bg-slug-dark text-white overflow-x-hidden">
+    <div id="root"></div>
+    <div class="scanlines"></div>
+  </body>
+</html>
